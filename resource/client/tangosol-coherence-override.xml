@@ -1,0 +1,33 @@
+<?xml version='1.0'?>
+<!DOCTYPE coherence SYSTEM "coherence.dtd">
+<coherence>
+    <cluster-config>
+        <multicast-listener>
+            <address>224.3.6.0</address>
+            <port>3059</port>
+            <port-auto-adjust>true</port-auto-adjust>
+            <priority>8</priority>
+        </multicast-listener>
+        <packet-publisher>
+            <packet-delivery>
+                <timeout-milliseconds>30000</timeout-milliseconds>
+            </packet-delivery>
+        </packet-publisher>
+        <service-guardian>
+            <timeout-milliseconds system-property="tangosol.coherence.guard.timeout">35000</timeout-milliseconds>
+        </service-guardian>
+    </cluster-config>
+    <logging-config>
+        <severity-level system-property="tangosol.coherence.log.level">5</severity-level>
+        <character-limit system-property="tangosol.coherence.log.limit">0</character-limit>
+    </logging-config>
+    <configurable-cache-factory-config>
+      <init-params>
+         <init-param>
+            <param-type>java.lang.String</param-type>
+            <param-value system-property="tangosol.coherence.cacheconfig">
+               example-config.xml</param-value>
+        </init-param>
+      </init-params>
+   </configurable-cache-factory-config>
+</coherence>
